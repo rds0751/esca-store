@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load compress %}
+{% load category_tags %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block extrahead %}
+    <script src="{% static "demo/js/modernizr/modernizr.js" %}" type="text/javascript" charset="utf-8"></script>    
+    <!--[if lte IE 7]><script src="{% static "demo/fonts/lte-ie7.js" %}"></script><![endif]-->
+{% endblock %}
+
+{% block layout %}
+    <div id="layout">
+        <header class="header clearfix">
+            {% include "partials/nav_accounts.html" %}
+            <div class="container-fluid">
+                <div class="header-content">
+                    <div>
+                        {% include "partials/brand.html" %}
+                        {% block brand_title %}<h3>{{ shop_tagline }}</h3>{% endblock %}
+                    </div>
+                    <div>
+                        {% block mini_basket %}<p>{% include "partials/mini_basket.html" %}</p>{% endblock %}
+                        <p class="hidden-phone"><i class="icon-mobile"></i> <span>{% trans "Call us, We're open 24/7" %} <br/> <strong>91-91119-91118</strong></span></p>
+                        <p class="hidden-phone"><i class="icon-lock"></i> <span>{% trans "Secure by" %} <br/> <strong>{% trans "VeriSign" %}</strong></span></p>
+                    </div>
+                 </div>
+            </div>
+            {% category_tree depth=2 as categories %}
+            {% block navigation %}
+                {% include "partials/nav_primary.html" %}
+            {% endblock %}
+        </header>
+
+        {% block content_wrapper %}
+        {% block page_promotions %}{% endblock %}   
+        <div class="page">
+            <div class="container-fluid">
+                <div class="page_inner">
+                    {% block breadcrumbs %}{% endblock %}
+                    {% block header %}
+                    <div class="page-header action">
+                        <h1>{% block headertext %}{% endblock %}</h1>
+                    </div>
+                    {% endblock %}
+                    {% include "partials/alert_messages.html" %}
+                    {% block subnavigation %}{% endblock %}
+                    <div class="content">
+                        {% block subheader %}{% endblock subheader %}
+                        
+                        {# Div exists for AJAX updates to entire content section #}
+                        <div id="content_inner">{% block content %}{% endblock %}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+
+        <div id="faux-foot"></div>
+    </div>
+<script type="text/javascript">function add_chatinline(){var hccid=93132523;var nt=document.createElement("script");nt.async=true;nt.src="https://mylivechat.com/chatinline.aspx?hccid="+hccid;var ct=document.getElementsByTagName("script")[0];ct.parentNode.insertBefore(nt,ct);}
+add_chatinline(); </script>
+    {% include "partials/footer.html" %}
+{% endblock %}
+
+{% block extrascripts %}
+{% compress js %}
+    {% include "partials/extrascripts.html" %}
+{% endcompress %}
+{% endblock %}

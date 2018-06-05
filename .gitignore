@@ -1,0 +1,10 @@
+venv
+*.pyc
+staticfiles
+.env
+<<<<<<< HEAD
+database
+db.sqlite3
+=======
+.idea/*
+>>>>>>> a52b711387f726dcd5c6de0b6a9310f7d0436a6e

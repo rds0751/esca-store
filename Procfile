@@ -1,0 +1,1 @@
+web: gunicorn escashop.wsgi --log-file -
