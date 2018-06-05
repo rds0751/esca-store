@@ -31,7 +31,12 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'core',
     'django.contrib.admin',
+    'el_pagination',
+    'markdown_deux',
+    'pagedown',
+    'simpleblog',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -196,16 +201,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 OSCAR_MISSING_IMAGE_URL = MEDIA_URL + 'image_not_found.jpg'
 
-PAYU_INFO = {
-    'INR': {
-        'merchant_key': "gtKFFx",
-        'merchant_salt': "eCwWELxi",
-        # for production environment use 'https://secure.payu.in/_payment'
-        'payment_url': 'https://test.payu.in/_payment',
-    }
-}
-
-
 from django.utils.translation import ugettext_lazy as _
 
 OSCAR_DASHBOARD_NAVIGATION += [{
@@ -215,10 +210,6 @@ OSCAR_DASHBOARD_NAVIGATION += [{
         {
             'label': _('Paypal Express transactions'),
             'url_name': 'paypal-express-list',
-        },
-        {
-            'label': _('Payu transactions'),
-            'url_name': 'payu-nonseamless-list',
         },
         {
             'label': _('COD Transaction Lists'),
@@ -232,8 +223,8 @@ OSCAR_SHOP_TAGLINE = "It's a huge world, 'Lets get an Escape with Esca'"
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-PAYPAL_API_USERNAME = 'travelguru.jimdo_api1.gmail.com'
-PAYPAL_API_PASSWORD = 'D6FNT2LMGJS39UPN'
-PAYPAL_API_SIGNATURE = 'AfzPPZH.t0ety8o.ciNBEdPv7r-OAYp4f3lBFk7wkbakNUhGRmp5jRMQ'
+PAYPAL_API_USERNAME = 'ripudaman_api1.approapp.com'
+PAYPAL_API_PASSWORD = 'QRBUZVUPGUGN2FU7'
+PAYPAL_API_SIGNATURE = 'AFGD4eaPO10uIEZq1EDEP1hGh04xAEu3v-T4PBZj-PttRlPTc19zqCpv'
 
 INSTALLED_APPS += ['paypal']

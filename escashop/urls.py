@@ -16,7 +16,6 @@ from django.contrib import admin
 from oscar.app import application
 from django.conf import settings
 from django.conf.urls.static import static
-from payu.nonseamless.dashboard.app import application as payu
 from paypal.express.dashboard.app import application as paypal_application
 
 
@@ -25,11 +24,9 @@ urlpatterns = [
     # django admin is not officially supported by oscar - you should use the dashboard instead
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('core.urls'), name="home"),
-    url(r'', include(application.urls)),
+    url(r'^store/', include(application.urls)),
+    url(r'^blog/', include('simpleblog.urls')),
  # paypal
     url(r'^checkout/paypal/', include('paypal.express.urls')),
     url(r'^dashboard/paypal/express/', include(paypal_application.urls)),
-
-    url(r'^checkout/payu/', include('payu.nonseamless.urls')),
-    url(r'^dashboard/payu/', include(payu.urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
