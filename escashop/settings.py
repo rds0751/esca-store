@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'oscar',
     'core',
     'django.contrib.admin',
     'el_pagination',
@@ -42,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'payu',
 ]
 
 MIDDLEWARE_CLASSES = [
