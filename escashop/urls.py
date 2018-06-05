@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n')),
     # django admin is not officially supported by oscar - you should use the dashboard instead
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^', include('core.urls'), name="home"),
+    url(r'^$', include('core.urls'), name="home"),
     url(r'^store/', include(application.urls)),
     url(r'^blog/', include('simpleblog.urls')),
  # paypal
