@@ -1,61 +1,80 @@
 {% load i18n %}
-<footer class="footer">
-    <div class="footer-disclaimer">
-        <div class="container-fluid">
-            <a href="#" class="pull-left"><strong>{% trans "EscaHub" %}</strong></a>
-            <p class="social-icons">
-                    {% trans "Connect with us!" %}
-                    <a href="https://facebook.com/escahub" class=""><i class="icon-facebook"></i></a>
-                    <a href="https://facebook.com/escahub" class="pull-right"><i class="icon"></i></a>
-                </p>
-        </div>
-    </div>
-    <div class="container-fluid">
+<!-- footer-copyright start -->
+        <footer  class="footer-copyright">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="row">
 
-    {% block footer %}
-    <ul class="footer-links"> 
-            <li><h3>ABOUT</h3>
-                <p>
-                    <a href="">{% trans "  Policy " %}</a>
-                    <a href="">{% trans "  About Us " %}</a>
-                    <a href="">{% trans "  Team " %}</a>
-                    <a href="">{% trans "  We are hiring! " %}</a>
-                    <a href="">{% trans "  Testimonial " %}</a>
-                    <a href="">{% trans "  Blog " %}</a>
-                </p>
-            </li>
-            <li><h3>QUICK LINKS</h3>
-                <p>
-                    <a href="">{% trans "  Privacy Policy " %}</a>
-                    <a href="">{% trans "  Cancellation " %}</a>
-                    <a href="">{% trans "  My account " %}</a>
-                    <a href="">{% trans "  EscaHub " %}</a>
-                    <a href="">{% trans "  EscaBus " %}</a>
-                    <a href="">{% trans "  EscaGear " %}</a>
-                    <a href="">{% trans "  FAQ " %}</a>
-                </p>
-            </li>
-            <li>
-                <h3>{% trans "Contact us" %}</h3>
-                <p>
-                    <strong><i class="icon-email"></i>{% trans "customercare@escahub.com" %}</strong>
-                    <strong><i class="icon-mobile"></i>{% trans "91-91119 91118" %}</strong></br>
-                    {% trans "741 Urban Estate," %} <br/> {% trans "Patiala Punjab 147001" %} <br/>  
-                </p>
-            </li>
-        </ul>
-    {% endblock %}
-    </div>
-    <div class="footer-disclaimer">
-        <div class="container-fluid">
-            <a href="#" class="pull-right">{% trans "A Site by Esca Group" %}</a>
-            <p class="hidden-phone">
-                <a href="https://www.verisign.com.au" title="https://www.verisign.com.au" target="_blank" class="pull-left"><i class="verisign"></i><i class="credit-cards"></i></a>
-            </p>
-            <p class="hidden-phone">
-                <a href="https://www.verisign.com.au" title="https://www.verisign.com.au" target="_blank" class="centre">{% trans "Terms &amp; Privacy Policy" %}</a>
-                <a href="https://www.verisign.com.au" title="https://www.verisign.com.au" target="_blank" class="centre">{% trans "&copy; copyrights Reserved" %}</a>
-            </p>
-        </div>
-    </div>
-</footer>
+                        <div class="col-sm-3">
+                            <div class="single-footer-item">
+                                <div class="footer-logo">
+                                    <a href="index.html">
+                                        Esca<span>Hub</span>
+                                    </a>
+                                    <p>
+                                        best travel agency
+                                    </p>
+                                </div>
+                            </div><!--/.single-footer-item-->
+                        </div><!--/.col-->
+
+                        <div class="col-sm-3">
+                            <div class="single-footer-item">
+                                <h2>link</h2>
+                                <div class="single-footer-txt">
+                                    <p><a href="#">home</a></p>
+                                    <p><a href="#">destination</a></p>
+                                    <p><a href="#">spacial packages</a></p>
+                                    <p><a href="#">special offers</a></p>
+                                    <p><a href="#">blog</a></p>
+                                    <p><a href="#">contacts</a></p>
+                                </div><!--/.single-footer-txt-->
+                            </div><!--/.single-footer-item-->
+
+                        </div><!--/.col-->
+
+                        <div class="col-sm-3">
+                            <div class="single-footer-item">
+                                <h2>popular destination</h2>
+                                <div class="single-footer-txt">
+                                    <p><a href="#">china</a></p>
+                                    <p><a href="#">venezuela</a></p>
+                                    <p><a href="#">brazil</a></p>
+                                    <p><a href="#">australia</a></p>
+                                    <p><a href="#">london</a></p>
+                                </div><!--/.single-footer-txt-->
+                            </div><!--/.single-footer-item-->
+                        </div><!--/.col-->
+
+                        <div class="col-sm-3">
+                            <div class="single-footer-item text-center">
+                                <h2 class="text-left">contacts</h2>
+                                <div class="single-footer-txt text-left">
+                                    <p>+1 (300) 1234 6543</p>
+                                    <p class="foot-email"><a href="#">info@tnest.com</a></p>
+                                    <p>North Warnner Park 336/A</p>
+                                    <p>Newyork, USA</p>
+                                </div><!--/.single-footer-txt-->
+                            </div><!--/.single-footer-item-->
+                        </div><!--/.col-->
+
+                    </div><!--/.row-->
+
+                </div><!--/.footer-content-->
+                <hr>
+                <div class="foot-icons ">
+                    <ul class="footer-social-links list-inline list-unstyled">
+                        <li><a href="#" target="_blank" class="foot-icon-bg-1"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#" target="_blank" class="foot-icon-bg-2"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#" target="_blank" class="foot-icon-bg-3"><i class="fa fa-instagram"></i></a></li>
+                    </ul>
+                    <p>&copy; 2017 <a href="">EscaHub</a>. All Right Reserved</p>
+
+                </div><!--/.foot-icons-->
+                <div id="scroll-Top">
+                    <i class="fa fa-angle-double-up return-to-top" id="scroll-top" data-toggle="tooltip" data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
+                </div><!--/.scroll-Top-->
+            </div><!-- /.container-->
+
+        </footer><!-- /.footer-copyright-->
+        <!-- footer-copyright end -->
