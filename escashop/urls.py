@@ -17,6 +17,7 @@ from oscar.app import application
 from django.conf import settings
 from django.conf.urls.static import static
 from paypal.express.dashboard.app import application as paypal_application
+from accounts.dashboard.app import application as accounts_app
 
 
 urlpatterns = [
@@ -28,4 +29,5 @@ urlpatterns = [
  # paypal
     url(r'^checkout/paypal/', include('paypal.express.urls')),
     url(r'^dashboard/paypal/express/', include(paypal_application.urls)),
+    url(r'^dashboard/accounts/', accounts_app.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

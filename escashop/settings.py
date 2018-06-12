@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'core',
+    'accounts',
     'django.contrib.admin',
     'el_pagination',
     'markdown_deux',
@@ -133,13 +134,15 @@ from oscar.defaults import *
 
 from oscar import OSCAR_MAIN_TEMPLATE_DIR
 from oscar import get_core_apps
+from accounts import TEMPLATE_DIR as ACCOUNTS_TEMPLATE_DIR
 
 TEMPLATES[0]['DIRS'] = [
     os.path.join(BASE_DIR, 'templates'),
     # this "hack" allows to access the oscar templates using standard path e.g. /home.html
     # but also prefixed with /oscar/ e.g. /oscar/home.html
     # this allows to extend oscar templates, we will see an example of this later
-    OSCAR_MAIN_TEMPLATE_DIR
+    OSCAR_MAIN_TEMPLATE_DIR,
+    ACCOUNTS_TEMPLATE_DIR
 ]
 
 TEMPLATES[0]['OPTIONS']['context_processors'] += [
@@ -194,7 +197,9 @@ OSCAR_ORDER_STATUS_PIPELINE = {
     'Cancelled': (),
 }
 
-OSCAR_DEFAULT_CURRENCY = "INR"
+OSCAR_DEFAULT_CURRENCY = 'INR'
+OSCAR_CURRENCY_LOCALE = 'en_US'
+OSCAR_CURRENCY_FORMAT = 'INR #,###.##'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -223,7 +228,34 @@ OSCAR_SHOP_TAGLINE = "It's a huge world, 'Lets get an Escape with Esca'"
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 PAYPAL_API_USERNAME = 'ripudaman_api1.approapp.com'
-PAYPAL_API_PASSWORD = 'DB6FQPV82F2Z44YU'
-PAYPAL_API_SIGNATURE = 'A4D9ggHpDo6JZ4c9dQRWbEpDreiKAdYsc8AMKe72882Igap1i9MriTBl'
+PAYPAL_API_PASSWORD = 'QRBUZVUPGUGN2FU7'
+PAYPAL_API_SIGNATURE = 'AFGD4eaPO10uIEZq1EDEP1hGh04xAEu3v-T4PBZj-PttRlPTc19zqCpv'
 
 INSTALLED_APPS += ['paypal']
+
+
+from oscar.defaults import *
+
+OSCAR_DASHBOARD_NAVIGATION.append(
+    {
+        'label': 'Accounts',
+        'icon': 'icon-globe',
+        'children': [
+            {
+                'label': 'Accounts',
+                'url_name': 'accounts-list',
+            },
+            {
+                'label': 'Transfers',
+                'url_name': 'transfers-list',
+            },
+            {
+                'label': 'Deferred income report',
+                'url_name': 'report-deferred-income',
+            },
+            {
+                'label': 'Profit/loss report',
+                'url_name': 'report-profit-loss',
+            },
+        ]
+    })

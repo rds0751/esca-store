@@ -72,40 +72,16 @@
 
         <div class="col-sm-6">
             {% block payment_info %}
-                <div class="sub-header">
-                    <h2>{% trans "Payment" %}</h2>
-                </div>
-                <div class="well well-success">
-                    <h3>{% trans "Payment" %}</h3>
-                    {% for source in order.sources.all %}
-                        <p>
-                        {% if source.reference %}
-                            {% blocktrans with amount=source.amount_allocated|currency:source.currency type=source.source_type.name reference=source.reference %}
-                                Allocation of {{ amount }} from type {{ type }} (reference: {{ reference }})
-                            {% endblocktrans %}
-                        {% else %}
-                            {% blocktrans with amount=source.amount_allocated|currency:source.currency type=source.source_type.name %}
-                                Allocation of {{ amount }} from type {{ type }}
-                            {% endblocktrans %}
-                        {% endif %}
-                        </p>
-                    {% empty %}
-                        <p>
-                        {% trans "No payment was required for this order." %}
-                        </p>
-                    {% endfor %}
-
-                    {% if order.billing_address %}
-                        <h4>{% trans "Billing address" %}</h4>
-                        <address>
-                            {% for field in order.billing_address.active_address_fields %}
-                                {{ field }}<br/>
-                            {% endfor %}
-                        </address>
-                    {% endif %}
-                </div>
-
-            {% endblock %}
+<div class="well well-success">
+    <h3>{% trans "Payment" %}</h3>
+    <p>{% trans "Account allocations" %}</p>
+    <ul>
+    {% for source in order.sources.all %}
+    <li>{% blocktrans with amount=source.amount_debited|currency ref=source.reference %}{{ amount }} from account with code {{ ref }}{% endblocktrans %}</li>
+    {% endfor %}
+    </ul>
+</div>
+{% endblock %}
         </div>
     </div>
 
