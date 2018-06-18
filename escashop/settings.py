@@ -147,7 +147,6 @@ TEMPLATES[0]['DIRS'] = [
 
 TEMPLATES[0]['OPTIONS']['context_processors'] += [
     'oscar.apps.search.context_processors.search_form',
-    'oscar.apps.promotions.context_processors.promotions',
     'oscar.apps.checkout.context_processors.checkout',
     'oscar.apps.customer.notifications.context_processors.notifications',
     'oscar.core.context_processors.metadata',
@@ -162,7 +161,7 @@ INSTALLED_APPS += [
     # it's used in the default oscar temlpates
     'widget_tweaks',
     # django oscar is split into many apps
-] + get_core_apps(['oscardemo.promotions'])
+]
 
 SITE_ID = 1
 
